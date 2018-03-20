@@ -14,7 +14,10 @@ before_install:
 - sfdx update
 - sfdx --version
 - sfdx plugins --core
-- sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --username ${HUB_USERNAME} --jwtkeyfile ${JWT_KEY_FILE} --setdefaultdevhubusername
+- printenv CONSUMER_KEY
+- printenv HUB_USERNAME
+- printenv JWT_KEY_FILE
+- sfdx force:auth:jwt:grant --clientid $CONSUMER_KEY --username $HUB_USERNAME --jwtkeyfile $JWT_KEY_FILE --setdefaultdevhubusername -a HubOrg
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --username $USERNAME --jwtkeyfile assets/server.key --setdefaultdevhubusername -a HubOrg
 
 script:
